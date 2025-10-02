@@ -1,0 +1,348 @@
+:root {
+    --primary-blue: #0066cc;
+    --secondary-blue: #4a90e2;
+    --electric-blue: #4A90E2;
+    --gradient-primary: linear-gradient(135deg, #0066cc 0%, #4a90e2 100%);
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --white: #ffffff;
+    --gray-50: #f8f9fa;
+    --gray-100: #e9ecef;
+    --gray-200: #dee2e6;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --shadow-soft: 0 2px 15px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --transition-fast: all 0.2s ease;
+    --transition-medium: all 0.3s ease;
+    --border-radius: 8px;
+    --gold-accent: #f0c420;
+}
+
+.navbar, .navbar.scrolled {
+    background: var(--gray-900);
+    backdrop-filter: none;
+    box-shadow: var(--shadow-soft);
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.navbar .nav-logo img, .navbar.scrolled .nav-logo img {
+    filter: brightness(0) invert(1);
+}
+
+.navbar .nav-link, .navbar.scrolled .nav-link {
+    color: var(--gray-200);
+}
+
+.navbar .nav-link:hover, .navbar.scrolled .nav-link:hover,
+.navbar .nav-link.active, .navbar.scrolled .nav-link.active {
+    color: var(--white);
+}
+
+.navbar .nav-link::after, .navbar.scrolled .nav-link::after {
+    background: var(--electric-blue);
+}
+
+.navbar .bar, .navbar.scrolled .bar {
+    background: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.execom-grid-6 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.execom-card.standard-card {
+    background: var(--gray-900);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+    transition: var(--transition-medium);
+    height: 400px;
+    position: relative;
+    color: var(--white);
+}
+
+.execom-card.standard-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.execom-card.standard-card .execom-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.execom-card.standard-card .execom-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-medium);
+    opacity: 0.9;
+}
+
+.execom-card.standard-card:hover .execom-image img {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.execom-card.standard-card .execom-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.2rem;
+    text-align: left;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(17, 24, 39, 0.95) 20%, transparent 100%);
+}
+
+.execom-card.standard-card .execom-info h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+}
+
+.execom-card.standard-card .execom-info .position,
+.execom-card.standard-card .execom-info .department {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gold-accent);
+    margin-bottom: 0.25rem;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.4;
+}
+
+.execom-card.standard-card .execom-info .department {
+    margin-bottom: 1rem;
+}
+
+.execom-card.standard-card .execom-social {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.execom-card.standard-card .execom-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+}
+
+.execom-card.standard-card .execom-social a:hover {
+    background: var(--gold-accent);
+    color: var(--gray-900);
+    border-color: var(--gold-accent);
+    transform: scale(1.1);
+}
+
+.core-execom {
+    padding: 140px 0 100px;
+    background: var(--gray-50);
+}
+
+.other-execom {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-strong);
+    transition: var(--transition-medium);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px);
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: var(--secondary-blue);
+    transform: translateY(-5px);
+}
+
+@media (max-width: 1024px) {
+    .execom-grid-6 {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .core-execom {
+        padding: 100px 0 80px;
+    }
+    .other-execom {
+        padding: 80px 0;
+    }
+
+    .execom-grid-6 {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
+    .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .core-execom {
+        padding: 100px 0 60px;
+    }
+    .other-execom {
+        padding: 60px 0;
+    }
+
+    .execom-grid-6 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .execom-card.standard-card {
+        height: 380px;
+    }
+
+    .execom-card.standard-card .execom-info {
+        padding: 1.2rem;
+    }
+
+    .execom-card.standard-card .execom-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .execom-card.standard-card .execom-info .position {
+        font-size: 0.9rem;
+    }
+
+    .execom-card.standard-card .execom-info .department {
+        font-size: 0.8rem;
+    }
+
+    .execom-card.standard-card .execom-social a {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .execom-card.standard-card,
+    .execom-card.standard-card .execom-image img,
+    .execom-card.standard-card .execom-social a,
+    .scroll-to-top,
+    .shape {
+        transition: none;
+        animation: none;
+    }
+
+    .execom-card.standard-card:hover {
+        transform: none;
+    }
+
+    .execom-card.standard-card:hover .execom-image img {
+        transform: none;
+    }
+
+    .execom-card.standard-card .execom-social a:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-contrast: high) {
+    .execom-card.standard-card {
+        border: 2px solid var(--text-dark);
+    }
+
+    .execom-card.standard-card .execom-social a {
+        border: 2px solid var(--primary-blue);
+    }
+
+    .execom-card.standard-card .execom-social a:hover {
+        border: 2px solid var(--white);
+    }
+}
+
+@media print {
+    .execom-card.standard-card {
+        break-inside: avoid;
+        height: auto;
+        box-shadow: none;
+        border: 1px solid var(--gray-200);
+    }
+
+    .execom-card.standard-card .execom-image {
+        height: 200px;
+    }
+
+    .scroll-to-top {
+        display: none;
+    }
+}

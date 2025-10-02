@@ -1,0 +1,273 @@
+.about-hero {
+    padding-top: 150px;
+    padding-bottom: 80px;
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    text-align: center;
+}
+
+.about-hero-content h1 {
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.about-hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.about-hero-logo {
+    max-width: 250px;
+    margin: 0 auto 2rem;
+}
+
+.about-hero-logo img {
+    width: 100%;
+    object-fit: contain;
+}
+
+
+.ieee-core,
+.ieee-structure {
+    padding: 60px 0;
+    background: var(--white);
+}
+
+.ieee-structure {
+    background: var(--gray-50);
+}
+
+.core-grid,
+.structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.core-card,
+.structure-card {
+    background: var(--gray-50);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--gray-200);
+    transition: var(--transition-medium);
+}
+
+.ieee-structure .structure-card {
+    background: var(--white);
+}
+
+.core-card:hover,
+.structure-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--primary-blue);
+}
+
+.core-icon,
+.structure-icon {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+}
+
+.core-card h3,
+.structure-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.core-card p,
+.structure-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.structure-image {
+    margin-top: 1.5rem;
+}
+
+.structure-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.ieee-history {
+    padding: 80px 0;
+    background: var(--gray-50);
+}
+.ieee-structure {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+
+.history-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.history-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 4px;
+    background: var(--gray-200);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 60px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 44px;
+    height: 44px;
+    background: var(--gray-200);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-medium);
+}
+
+.timeline-dot::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    transition: var(--transition-medium);
+}
+
+.timeline-item:hover .timeline-dot {
+    background: var(--primary-blue);
+}
+
+.timeline-item:hover .timeline-dot::after {
+    background: var(--white);
+    transform: scale(1.1);
+}
+
+.timeline-content {
+    background: var(--white);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.timeline-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+
+.about-page .navbar {
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-strong);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-page .navbar .nav-link {
+    color: var(--white);
+}
+
+.about-page .navbar .nav-link:hover {
+    color: var(--electric-blue);
+}
+
+.about-page .navbar .nav-logo img {
+    filter: brightness(0) invert(1);
+}
+
+.about-page .navbar .bar {
+    background: var(--white);
+}
+
+
+@media (max-width: 768px) {
+
+    .about-hero {
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+    .about-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .about-hero-content p {
+        font-size: 1.1rem;
+    }
+    .about-hero-logo {
+        max-width: 200px;
+    }
+
+    .core-card,
+    .structure-card {
+        padding: 1.5rem;
+        text-align: left;
+    }
+    .core-icon,
+    .structure-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    .core-card h3,
+    .structure-card h3 {
+        font-size: 1.3rem;
+    }
+
+
+    .ieee-history {
+        padding: 60px 0;
+    }
+    .history-timeline::before {
+        left: 15px;
+    }
+    .timeline-item {
+        padding-left: 50px;
+    }
+    .timeline-dot {
+        width: 34px;
+        height: 34px;
+        left: -2px;
+    }
+    .timeline-dot::after {
+        width: 16px;
+        height: 16px;
+    }
+    .timeline-content {
+        padding: 1rem 1.25rem;
+    }
+    .timeline-content h3 {
+        font-size: 1.2rem;
+    }
+}

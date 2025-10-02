@@ -1,0 +1,120 @@
+.maintenance-page {
+    background-color: var(--gray-900);
+    color: var(--white);
+}
+
+.maintenance-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding: 100px 0 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #001a33, var(--gray-900), #002b5c, #111827);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+    z-index: 1;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.maintenance-icon {
+    margin: 0 auto 2rem;
+}
+
+.maintenance-icon img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+.content-wrapper h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.content-wrapper p {
+    font-size: 1.1rem;
+    color: var(--gray-200);
+    line-height: 1.7;
+    margin: 0 auto 2.5rem;
+}
+
+.social-links {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.social-links p {
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.social-links .footer-social {
+    justify-content: center;
+}
+
+.maintenance-page .navbar {
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-strong);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.maintenance-page .navbar .nav-link {
+    color: var(--white);
+}
+.maintenance-page .navbar .nav-link:hover {
+    color: var(--electric-blue);
+}
+.maintenance-page .navbar .nav-logo img {
+    filter: brightness(0) invert(1);
+}
+.maintenance-page .navbar .bar {
+    background: var(--white);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
