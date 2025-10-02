@@ -19,6 +19,8 @@
     --gold-accent: #f0c420;
 }
 
+/* Base Styles for the Execom Page */
+
 .navbar, .navbar.scrolled {
     background: var(--gray-900);
     backdrop-filter: none;
@@ -55,7 +57,8 @@
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    /* REDUCED: Tighter section headers */
+    margin-bottom: 1.5rem; 
 }
 
 .section-header h2 {
@@ -72,9 +75,11 @@
     margin: 0 auto;
 }
 
+/* Optimized Grid and Card Sizing (Kept from previous optimization) */
 .execom-grid-6 {
+    /* Reduced minmax to 180px to fit more cards per row on larger screens */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
@@ -86,7 +91,8 @@
     overflow: hidden;
     box-shadow: var(--shadow-strong);
     transition: var(--transition-medium);
-    height: 400px;
+    /* Reduced card height */
+    height: 300px; 
     position: relative;
     color: var(--white);
 }
@@ -123,14 +129,16 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 1.2rem;
+    /* Reduced padding slightly */
+    padding: 1rem;
     text-align: left;
     z-index: 2;
     background: linear-gradient(to top, rgba(17, 24, 39, 0.95) 20%, transparent 100%);
 }
 
 .execom-card.standard-card .execom-info h3 {
-    font-size: 1.4rem;
+    /* Reduced font size slightly */
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--white);
     margin-bottom: 0.25rem;
@@ -138,7 +146,8 @@
 
 .execom-card.standard-card .execom-info .position,
 .execom-card.standard-card .execom-info .department {
-    font-size: 0.9rem;
+    /* Adjusted font size */
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--gold-accent);
     margin-bottom: 0.25rem;
@@ -154,7 +163,7 @@
 .execom-card.standard-card .execom-social {
     display: flex;
     gap: 0.75rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem; /* Reduced margin */
 }
 
 .execom-card.standard-card .execom-social a {
@@ -179,13 +188,16 @@
     transform: scale(1.1);
 }
 
+/* FURTHER REDUCED vertical padding for all sections */
 .core-execom {
-    padding: 140px 0 100px;
+    /* Reduced from 80px 0 60px to 40px 0 30px */
+    padding: 100px 0 30px;
     background: var(--gray-50);
 }
 
 .other-execom {
-    padding: 100px 0;
+    /* Reduced from 60px 0 to 30px 0 */
+    padding: 30px 0;
     background: var(--white);
 }
 
@@ -220,28 +232,36 @@
     transform: translateY(-5px);
 }
 
+/* Media Queries for Mobile Optimization */
+
 @media (max-width: 1024px) {
     .execom-grid-6 {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        /* Adjusted min size to accommodate more columns on tablets */
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
         gap: 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
+    /* Reduced section padding for mobile view */
     .core-execom {
-        padding: 100px 0 80px;
+        /* Reduced from 60px 0 40px to 40px 0 20px */
+        padding: 120px 0 20px;
     }
     .other-execom {
-        padding: 80px 0;
+        /* Reduced from 40px 0 to 20px 0 */
+        padding: 20px 0;
     }
 
     .execom-grid-6 {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
+        /* Allows 3-4 cards per row on typical tablet portrait screens */
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+        gap: 1.5rem;
     }
 
     .section-header {
-        margin-bottom: 3rem;
+        /* Further reduced margin-bottom for tighter look */
+        margin-bottom: 1.5rem;
     }
 
     .scroll-to-top {
@@ -255,43 +275,54 @@
 
 @media (max-width: 480px) {
     .core-execom {
-        padding: 100px 0 60px;
+        /* Reduced from 50px 0 30px to 30px 0 15px on small devices */
+        padding: 130px 0 15px;
     }
     .other-execom {
-        padding: 60px 0;
+        /* Reduced from 30px 0 to 15px 0 */
+        padding: 15px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 1rem;
     }
 
     .execom-grid-6 {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        /* Allows 2-3 cards per row on mobile screens (480px wide) */
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 1rem; /* Reduced gap */
     }
 
     .execom-card.standard-card {
-        height: 380px;
+        /* Significantly reduced card height for mobile */
+        height: 250px; 
     }
 
     .execom-card.standard-card .execom-info {
-        padding: 1.2rem;
+        /* Reduced padding */
+        padding: 0.8rem;
     }
 
     .execom-card.standard-card .execom-info h3 {
-        font-size: 1.2rem;
+        /* Smaller font size */
+        font-size: 1.1rem;
     }
 
-    .execom-card.standard-card .execom-info .position {
-        font-size: 0.9rem;
-    }
-
+    .execom-card.standard-card .execom-info .position,
     .execom-card.standard-card .execom-info .department {
-        font-size: 0.8rem;
+        /* Smaller font size */
+        font-size: 0.75rem;
     }
 
     .execom-card.standard-card .execom-social a {
-        width: 35px;
-        height: 35px;
-        font-size: 0.9rem;
+        /* Smaller social icons */
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
     }
 }
+
+/* Accessibility and Print Styles (Keeping original values) */
 
 @media (prefers-reduced-motion: reduce) {
     .execom-card.standard-card,
