@@ -295,12 +295,16 @@
     .execom-card.standard-card .execom-info .execom-details { flex: 1; }
 
     /* --- FONT SIZE REDUCED FOR MOBILE VIEW --- */
+    .section-header h2 {
+        font-size: 1.5rem; /* Reduced for mobile */
+    }
+
     .execom-card.standard-card .execom-info h3 { 
-        font-size: 0.85rem; /* Reduced from 1rem */
+        font-size: 0.85rem;
     }
     .execom-card.standard-card .execom-info .position,
     .execom-card.standard-card .execom-info .department { 
-        font-size: 0.65rem; /* Reduced from 0.7rem */
+        font-size: 0.65rem;
     }
     
     .execom-card.standard-card .execom-social { margin-top: 0; }
