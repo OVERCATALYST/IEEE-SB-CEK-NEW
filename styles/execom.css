@@ -11,20 +11,18 @@
     --gray-200: #dee2e6;
     --gray-800: #1f2937;
     --gray-900: #111827;
-    --shadow-soft: 0 2px 15px rgba(0, 0, 0, 0.1);
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08);
     --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.15);
     --transition-fast: all 0.2s ease;
     --transition-medium: all 0.3s ease;
-    --border-radius: 8px;
+    --border-radius: 12px;
     --gold-accent: #f0c420;
 }
-
-/* Base Styles for the Execom Page */
 
 .navbar, .navbar.scrolled {
     background: var(--gray-900);
     backdrop-filter: none;
-    box-shadow: var(--shadow-soft);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid var(--gray-800);
 }
 
@@ -57,8 +55,7 @@
 
 .section-header {
     text-align: center;
-    /* REDUCED: Tighter section headers */
-    margin-bottom: 1.5rem; 
+    margin-bottom: 2rem;
 }
 
 .section-header h2 {
@@ -75,26 +72,43 @@
     margin: 0 auto;
 }
 
-/* Optimized Grid and Card Sizing (Kept from previous optimization) */
+/* --- Centered Flex Grids (Faculty & Societies) --- */
+.faculty-grid, .society-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Set a fixed width for cards in these centered grids */
+.faculty-grid .execom-card.standard-card,
+.society-grid .execom-card.standard-card {
+    width: 270px;
+    flex-shrink: 0;
+}
+
+/* --- Responsive Grid (for large groups like Core Execom) --- */
 .execom-grid-6 {
-    /* Reduced minmax to 180px to fit more cards per row on larger screens */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
     max-width: 1400px;
     margin: 0 auto;
 }
 
+/* --- Base Standard Card Style (applies to ALL cards) --- */
 .execom-card.standard-card {
     background: var(--gray-900);
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-strong);
     transition: var(--transition-medium);
-    /* Reduced card height */
-    height: 300px; 
+    height: 300px; /* Consistent height */
     position: relative;
     color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .execom-card.standard-card:hover {
@@ -125,45 +139,54 @@
 }
 
 .execom-card.standard-card .execom-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    /* Reduced padding slightly */
     padding: 1rem;
     text-align: left;
     z-index: 2;
-    background: linear-gradient(to top, rgba(17, 24, 39, 0.95) 20%, transparent 100%);
+    background: linear-gradient(to top, rgba(17, 24, 39, 0.95) 40%, transparent 100%);
+    min-height: 100px;
+    display: flex;
+    flex-direction: row; /* Lays out details and social icon side-by-side */
+    justify-content: space-between; /* Pushes them to opposite ends */
+    align-items: flex-end; /* Aligns both to the bottom */
 }
 
 .execom-card.standard-card .execom-info h3 {
-    /* Reduced font size slightly */
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--white);
     margin-bottom: 0.25rem;
 }
 
-.execom-card.standard-card .execom-info .position,
-.execom-card.standard-card .execom-info .department {
-    /* Adjusted font size */
+.execom-card.standard-card .execom-info .position {
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--gold-accent);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0;
     text-transform: none;
     letter-spacing: 0;
     line-height: 1.4;
 }
 
 .execom-card.standard-card .execom-info .department {
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gold-accent);
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.execom-card.standard-card .execom-info .position + .department {
+    margin-top: 0;
 }
 
 .execom-card.standard-card .execom-social {
     display: flex;
     gap: 0.75rem;
-    margin-top: 0.5rem; /* Reduced margin */
+    margin-top: 0;
 }
 
 .execom-card.standard-card .execom-social a {
@@ -188,19 +211,18 @@
     transform: scale(1.1);
 }
 
-/* FURTHER REDUCED vertical padding for all sections */
+/* --- Page Sections --- */
 .core-execom {
-    /* Reduced from 80px 0 60px to 40px 0 30px */
     padding: 100px 0 30px;
     background: var(--gray-50);
 }
 
 .other-execom {
-    /* Reduced from 60px 0 to 30px 0 */
     padding: 30px 0;
     background: var(--white);
 }
 
+/* --- Scroll To Top Button Style --- */
 .scroll-to-top {
     position: fixed;
     bottom: 30px;
@@ -219,6 +241,9 @@
     visibility: hidden;
     transform: translateY(100px);
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .scroll-to-top.visible {
@@ -232,148 +257,52 @@
     transform: translateY(-5px);
 }
 
-/* Media Queries for Mobile Optimization */
-
+/* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
     .execom-grid-6 {
-        /* Adjusted min size to accommodate more columns on tablets */
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    /* Reduced section padding for mobile view */
-    .core-execom {
-        /* Reduced from 60px 0 40px to 40px 0 20px */
-        padding: 120px 0 20px;
-    }
-    .other-execom {
-        /* Reduced from 40px 0 to 20px 0 */
-        padding: 20px 0;
-    }
-
-    .execom-grid-6 {
-        /* Allows 3-4 cards per row on typical tablet portrait screens */
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-        gap: 1.5rem;
-    }
-
-    .section-header {
-        /* Further reduced margin-bottom for tighter look */
-        margin-bottom: 1.5rem;
-    }
-
-    .scroll-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-    }
+    .core-execom { padding: 120px 0 20px; }
+    .other-execom { padding: 20px 0; }
+    .execom-grid-6 { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
-    .core-execom {
-        /* Reduced from 50px 0 30px to 30px 0 15px on small devices */
-        padding: 130px 0 15px;
-    }
-    .other-execom {
-        /* Reduced from 30px 0 to 15px 0 */
-        padding: 15px 0;
-    }
-    
-    .section-header {
-        margin-bottom: 1rem;
+    .core-execom { padding: 130px 0 15px; }
+    .other-execom { padding: 15px 0; }
+    .execom-grid-6, .society-grid, .faculty-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
-    .execom-grid-6 {
-        /* Allows 2-3 cards per row on mobile screens (480px wide) */
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-        gap: 1rem; /* Reduced gap */
+    .society-grid .execom-card.standard-card,
+    .faculty-grid .execom-card.standard-card {
+        width: 100%; /* Override fixed width on mobile */
     }
 
     .execom-card.standard-card {
-        /* Significantly reduced card height for mobile */
-        height: 250px; 
+        height: 230px;
     }
 
     .execom-card.standard-card .execom-info {
-        /* Reduced padding */
-        padding: 0.8rem;
+        padding: 0.7rem;
     }
+    
+    .execom-card.standard-card .execom-info .execom-details { flex: 1; }
 
-    .execom-card.standard-card .execom-info h3 {
-        /* Smaller font size */
-        font-size: 1.1rem;
+    /* --- FONT SIZE REDUCED FOR MOBILE VIEW --- */
+    .execom-card.standard-card .execom-info h3 { 
+        font-size: 0.85rem; /* Reduced from 1rem */
     }
-
     .execom-card.standard-card .execom-info .position,
-    .execom-card.standard-card .execom-info .department {
-        /* Smaller font size */
-        font-size: 0.75rem;
+    .execom-card.standard-card .execom-info .department { 
+        font-size: 0.65rem; /* Reduced from 0.7rem */
     }
-
-    .execom-card.standard-card .execom-social a {
-        /* Smaller social icons */
-        width: 30px;
-        height: 30px;
-        font-size: 0.8rem;
-    }
-}
-
-/* Accessibility and Print Styles (Keeping original values) */
-
-@media (prefers-reduced-motion: reduce) {
-    .execom-card.standard-card,
-    .execom-card.standard-card .execom-image img,
-    .execom-card.standard-card .execom-social a,
-    .scroll-to-top,
-    .shape {
-        transition: none;
-        animation: none;
-    }
-
-    .execom-card.standard-card:hover {
-        transform: none;
-    }
-
-    .execom-card.standard-card:hover .execom-image img {
-        transform: none;
-    }
-
-    .execom-card.standard-card .execom-social a:hover {
-        transform: none;
-    }
-}
-
-@media (prefers-contrast: high) {
-    .execom-card.standard-card {
-        border: 2px solid var(--text-dark);
-    }
-
-    .execom-card.standard-card .execom-social a {
-        border: 2px solid var(--primary-blue);
-    }
-
-    .execom-card.standard-card .execom-social a:hover {
-        border: 2px solid var(--white);
-    }
-}
-
-@media print {
-    .execom-card.standard-card {
-        break-inside: avoid;
-        height: auto;
-        box-shadow: none;
-        border: 1px solid var(--gray-200);
-    }
-
-    .execom-card.standard-card .execom-image {
-        height: 200px;
-    }
-
-    .scroll-to-top {
-        display: none;
-    }
+    
+    .execom-card.standard-card .execom-social { margin-top: 0; }
+    .execom-card.standard-card .execom-social a { width: 28px; height: 28px; font-size: 0.75rem; }
 }
