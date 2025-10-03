@@ -4,81 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline | IEEE SB CEK</title>
-
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./styles/timeline.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="maintenance-page">
-    
-    <nav class="navbar">
-    <div class="nav-container">
-        <div class="nav-logo">
-            <img src="./assets/IEEE SB CEK.png" alt="IEEE SB CEK Logo">
-        </div>
-        <div class="nav-menu" id="navMenu">
-            <a href="index.html" class="nav-link">Home</a>
-            <div class="nav-item dropdown">
-                <a href="#about" class="nav-link dropdown-toggle">About <i class="fas fa-chevron-down"></i></a>
-                <div class="dropdown-menu">
-                    <a href="aboutieee.html" class="dropdown-item">About IEEE</a>
-                    <a href="about.html" class="dropdown-item">About Us</a>
-                    <a href="legacy.html" class="dropdown-item">Legacy</a>
-                    <div class="dropdown-divider"></div>
-                    <a href="./assets/ByLaw.pdf" class="dropdown-item" target="_blank" rel="noopener noreferrer">Constitution</a>
-                </div>
-            </div>
-            <a href="execom.html" class="nav-link">Execom</a>
-            <a href="timeline.html" class="nav-link">Timeline</a>
-            <a href="#events" class="nav-link">Events</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle">More Links <i class="fas fa-chevron-down"></i></a>
-                <div class="dropdown-menu">
-                <a href="https://www.ieee.org/" class="dropdown-item">IEEE.org</a>
-                <div class="dropdown-divider"></div>
-                <a href="https://ieeexplore.ieee.org/" class="dropdown-item">IEEE Xplore Digital Library</a>
-                <div class="dropdown-divider"></div>
-                <a href="https://standards.ieee.org/" class="dropdown-item">IEEE Standards</a>
-                <div class="dropdown-divider"></div>
-                <a href="https://spectrum.ieee.org/" class="dropdown-item">IEEE Spectrum</a>
-                <div class="dropdown-divider"></div>
-                <a href="https://www.ieeer10.org/" class="dropdown-item">IEEE Region 10</a>
-                <div class="dropdown-divider"></div>
-                <a href="https://ieeekerala.org/" class="dropdown-item">IEEE Kerala Section</a>
-            </div>
-        </div>
-        </div>
-        <div class="nav-toggle" id="navToggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </div>
-  </nav>
+<body class="timeline-page">
 
-    <main class="maintenance-content">
-        <div class="background-animation"></div>
-        <div class="container">
-            <div class="content-wrapper">
-                <div class="maintenance-icon">
-                    <!-- The SVG is replaced with this image tag -->
-                    <img src="./assets/maintainance.png" alt="Website Under Construction">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="./assets/IEEE SB CEK.png" alt="IEEE SB CEK Logo">
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-item dropdown">
+                    <a href="#about" class="nav-link dropdown-toggle">About <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="aboutieee.html" class="dropdown-item">About IEEE</a>
+                        <a href="about.html" class="dropdown-item">About Us</a>
+                        <a href="legacy.html" class="dropdown-item">Legacy</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="./assets/ByLaw.pdf" class="dropdown-item" target="_blank" rel="noopener noreferrer">Constitution</a>
+                    </div>
                 </div>
-                <h1>We'll be back soon!</h1>
-                <p>Our website is currently undergoing scheduled maintenance to improve your experience. We are working hard to get things up and running as soon as possible. Thank you for your patience!</p>
-                <div class="social-links">
-                    <p>Stay tuned for updates:</p>
-                    <!-- <div class="footer-social">
-                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div> -->
+                <a href="execom.html" class="nav-link">Execom</a>
+                <a href="timeline.html" class="nav-link active">Timeline</a>
+                <a href="activities.html" class="nav-link">Events</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">More Links <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="https://www.ieee.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE.org</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="https://ieeexplore.ieee.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Xplore Digital Library</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="https://standards.ieee.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Standards</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="https://spectrum.ieee.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Spectrum</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="https://www.ieeer10.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Region 10</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="https://ieeekerala.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Kerala Section</a>
+                    </div>
                 </div>
             </div>
+            <div class="nav-toggle" id="navToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
+    </nav>
+
+    <main>
+        <section class="timeline-hero">
+            <video autoplay loop muted playsinline id="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-a-stream-of-golden-particles-of-light-2953-large.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay-v2"></div>
+            <div class="container">
+                <div class="hero-content-v2">
+                    <h1>Our Journey Through Time</h1>
+                    <p>Tracing our milestones, achievements, and the memorable events that define our history.</p>
+                    <a href="#timeline-section" class="scroll-down-btn">Explore the Years</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline-section" class="timeline-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2 style="color: var(--white);">A Chronicle of Progress</h2>
+                    <p style="color: var(--gray-200);">Key moments from recent years that shaped our Student Branch.</p>
+                </div>
+
+                <div class="timeline">
+                    <!-- Year 2025 -->
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>AIROB Hackathon</h3>
+                            <p>An electrifying 18-hour AI & Robotics Hackathon fostering innovation, teamwork, and technical excellence in solving real-world challenges.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>PES Day Ambassador</h3>
+                            <p>Ms. Arafa N. selected as a PES Day Ambassador for IEEE PES Day 2025, reflecting her leadership and dedication.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Industrial Visit to Kudankulam</h3>
+                            <p>A visit to the Kudankulam Nuclear Power Plant, offering insights into how nuclear energy powers a sustainable future.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>IEEEXtreme 19.0 Ambassador</h3>
+                            <p>Ms. Arafa N selected as the IEEEXtreme 19.0 Student Branch Ambassador, fostering technical excellence.</p>
+                        </div>
+                    </div>
+
+                    <!-- Year 2024 -->
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Regional Exemplary Student Branch</h3>
+                            <p>Honored with the IEEE Regional Exemplary Student Branch Award for the sixth time, a testament to the dedication of our members.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>LUXATHON 5.0</h3>
+                            <p>The fifth edition of India's premier 24-hour Electrical Illumination Hackathon, celebrating innovation in light, vision, and robotics.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>AITHON 2.0</h3>
+                            <p>The Premium AI-Signal Hackathon, a platform for developing innovative solutions using artificial intelligence and signal processing.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>IEEE STEM Champion</h3>
+                            <p>Ms. Sidhi A. S. selected as an IEEE STEM Champion for her outstanding contributions to promoting STEM initiatives.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>EDIZONE 4.0</h3>
+                            <p>A dynamic event filled with technical sessions, interactive games, and hands-on workshops to foster learning and creativity.</p>
+                        </div>
+                    </div>
+
+                    <!-- Year 2023 -->
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Women In Power Summit (WIPS)</h3>
+                            <p>A national-level technical symposium designed to empower, inspire, and honor the contributions of women in engineering.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>SPExpo</h3>
+                            <p>A college-level competition for innovative projects, showcasing talent in signal processing and technical excellence.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                             <h3>IPRECON</h3>
+                            <p>The third edition of the International Power and Renewable Energy Conference, promoting research and innovation.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Luxathon</h3>
+                            <p>A 24-hour national-level electrical illumination hackathon for solutions using light, vision, and robotics.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -86,7 +178,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="./assets/IEEE SB CEK.png" alt="IEEE SB CEK Footer Logo">      
+                        <img src="./assets/IEEE SB CEK.png" alt="IEEE SB CEK Footer Logo">
                     </div>
                     <div class="footer-social">
                         <a href="https://www.facebook.com/ieeeceksb/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -113,5 +205,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
