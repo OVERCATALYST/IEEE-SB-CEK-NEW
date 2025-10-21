@@ -843,11 +843,21 @@ section {
     .nav-menu.active {
         left: 0;
     }
-    .nav-menu > .nav-link,
-    .nav-menu > .nav-item {
+
+    /* START: THIS IS THE FINAL FIX */
+    .nav-menu > .nav-link {
         width: 80%;
         text-align: center;
     }
+    
+    .nav-menu > .nav-item {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /* END: FINAL FIX */
+
     .nav-link,
     .navbar.scrolled .nav-link {
         color: var(--white);
@@ -872,6 +882,7 @@ section {
         transition: max-height 0.4s ease-out, padding 0.4s ease-out;
         border-radius: 8px;
         width: 100%;
+        text-align: center;
     }
     
     .dropdown.active .dropdown-menu {
@@ -886,7 +897,7 @@ section {
 
     .dropdown-item {
         color: var(--gray-200);
-        padding: 10px 0;
+        padding: 10px 20px;
     }
     .hero {
         padding: 0 20px;
