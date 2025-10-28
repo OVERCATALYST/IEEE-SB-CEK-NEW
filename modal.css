@@ -1,0 +1,110 @@
+/* modal.css - Styles for the event popup */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+  backdrop-filter: blur(5px);
+  
+  /* For centering content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* For fade-in animation */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Modal "active" state (toggled by JS) */
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Content (the white box) */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 1000px; /* Adjust width as needed */
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+/* The Close Button */
+.modal-close {
+  color: #aaa;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal Header */
+.modal-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* The Gallery inside the modal */
+.modal-gallery {
+  display: flex;
+  flex-wrap: wrap; /* Allows images to stack on small screens */
+  justify-content: center;
+  gap: 1.5rem; /* Space between images */
+}
+
+.modal-gallery img {
+  width: 100%;
+  max-width: 300px; /* Controls the size of each image */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.modal-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* Make the specific event card clickable */
+#aithonEventCard {
+    cursor: pointer;
+}
+
+/* Add a slightly more pronounced hover effect for the clickable card */
+#aithonEventCard:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-strong);
+}

@@ -140,3 +140,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('IEEE SB CEK Website initialized successfully!');
 });
+
+
+
+
+
+/* === MODAL LOGIC FOR AITHON 3.0 === */
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Get the modal element
+    const aithonModal = document.getElementById('aithonModal');
+    
+    // Get the card that opens the modal
+    const aithonCard = document.getElementById('aithonEventCard');
+    
+    // Get the close button
+    const closeModalBtn = aithonModal.querySelector('.modal-close');
+
+    // Function to open the modal
+    function openModal() {
+        aithonModal.classList.add('active');
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        aithonModal.classList.remove('active');
+    }
+
+    // --- Event Listeners ---
+    
+    // When the user clicks the card, open the modal
+    if (aithonCard) {
+        aithonCard.addEventListener('click', openModal);
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+
+    // When the user clicks anywhere outside of the modal content, close it
+    window.addEventListener('click', (event) => {
+        if (event.target == aithonModal) {
+            closeModal();
+        }
+    });
+});

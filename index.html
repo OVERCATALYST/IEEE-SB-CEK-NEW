@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | IEEE SB CEK</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -148,7 +149,7 @@
                     <p>Stay updated with our latest activities and achievements</p>
                 </div>
                 <div class="events-grid">
-                    <div class="event-card">
+                    <div class="event-card" id="aithonEventCard">
                         <div class="event-image">
                             <img src="./assets/aithon.png" alt="Technical Workshop">
                             <div class="event-date">
@@ -255,6 +256,18 @@
             </div>
         </div>
     </footer>
+
+    <div id="aithonModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h2>AITHON 3.0 Winners</h2>
+        <div class="modal-gallery">
+            <img src="./assets/prize/aithon_1.jpeg" alt="Aithon 3.0 Winners - 1st Place">
+            <img src="./assets/prize/aithon_2.jpeg" alt="Aithon 3.0 Winners - 2nd Place">
+            <img src="./assets/prize/aithon_3.jpeg" alt="Aithon 3.0 Winners - 3rd Place">
+        </div>
+    </div>
+   </div>
 
     <script src="script.js"></script>
 </body>
