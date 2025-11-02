@@ -9,15 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="about-us-page">
-    <nav class="navbar scrolled">
+    <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <img src="./assets/IEEE SB CEK.png" alt="IEEE SB CEK Logo">
             </div>
+            
+            <!-- Hamburger Toggle Button -->
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
             <div class="nav-menu" id="navMenu">
                 <a href="index.html" class="nav-link">Home</a>
+                
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active">About <i class="fas fa-chevron-down"></i></a>
+                    <a href="#about" class="nav-link dropdown-toggle">
+                        About 
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
                     <div class="dropdown-menu">
                         <a href="aboutieee.html" class="dropdown-item">About IEEE</a>
                         <a href="about.html" class="dropdown-item">About Us</a>
@@ -26,31 +38,31 @@
                         <a href="./assets/ByLaw.pdf" class="dropdown-item" target="_blank" rel="noopener noreferrer">Constitution</a>
                     </div>
                 </div>
+                
                 <a href="execom.html" class="nav-link">Execom</a>
                 <a href="timeline.html" class="nav-link">Timeline</a>
                 <a href="activities.html" class="nav-link">Events</a>
                 <a href="contact.html" class="nav-link">Contact</a>
+                
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">More Links <i class="fas fa-chevron-down"></i></a>
+                    <a href="#" class="nav-link dropdown-toggle">
+                        More Links 
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
                     <div class="dropdown-menu">
-                        <a href="https://www.ieee.org/" class="dropdown-item">IEEE.org</a>
+                        <a href="https://www.ieee.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE.org</a>
                         <div class="dropdown-divider"></div>
-                        <a href="https://ieeexplore.ieee.org/" class="dropdown-item">IEEE Xplore Digital Library</a>
+                        <a href="https://ieeexplore.ieee.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Xplore Digital Library</a>
                         <div class="dropdown-divider"></div>
-                        <a href="https://standards.ieee.org/" class="dropdown-item">IEEE Standards</a>
+                        <a href="https://standards.ieee.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Standards</a>
                         <div class="dropdown-divider"></div>
-                        <a href="https://spectrum.ieee.org/" class="dropdown-item">IEEE Spectrum</a>
+                        <a href="https://spectrum.ieee.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Spectrum</a>
                         <div class="dropdown-divider"></div>
-                        <a href="https://www.ieeer10.org/" class="dropdown-item">IEEE Region 10</a>
-                <div class="dropdown-divider"></div>
-                <a href="https://ieeekerala.org/" class="dropdown-item">IEEE Kerala Section</a>
+                        <a href="https://www.ieeer10.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Region 10</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="https://ieeekerala.org/" class="dropdown-item" target="_blank" rel="noopener noreferrer">IEEE Kerala Section</a>
                     </div>
                 </div>
-            </div>
-            <div class="nav-toggle" id="navToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
             </div>
         </div>
     </nav>

@@ -3,57 +3,127 @@ function initNavbar() {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const dropdowns = document.querySelectorAll('.dropdown');
+    const body = document.body;
 
-    if (!navbar || !navToggle || !navMenu) return;
+    if (!navbar) return;
 
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-    });
+    // Create overlay for mobile menu
+    let overlay = document.querySelector('.nav-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'nav-overlay';
+        document.body.appendChild(overlay);
+    }
 
+    // Mobile menu toggle
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking overlay
+        overlay.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            body.classList.remove('menu-open');
+            
+            // Close all dropdowns
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking a non-dropdown link
+        const navLinks = navMenu.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    body.classList.remove('menu-open');
+                }
+            });
+        });
+    }
+
+    // Dropdown handling
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         
-        dropdown.addEventListener('mouseenter', () => {
-            if (window.innerWidth > 768) dropdown.classList.add('active');
-        });
-        dropdown.addEventListener('mouseleave', () => {
-            if (window.innerWidth > 768) dropdown.classList.remove('active');
-        });
-
         if (toggle) {
+            // Mobile: click to toggle
             toggle.addEventListener('click', (e) => {
                 if (window.innerWidth <= 768) {
-                    e.preventDefault(); 
-                    dropdowns.forEach(d => {
-                        if (d !== dropdown) {
-                            d.classList.remove('active');
+                    e.preventDefault();
+                    
+                    // Close other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
                         }
                     });
+                    
+                    // Toggle current dropdown
                     dropdown.classList.toggle('active');
+                }
+            });
+
+            // Desktop: hover to show
+            dropdown.addEventListener('mouseenter', () => {
+                if (window.innerWidth > 768) {
+                    dropdown.classList.add('active');
+                }
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 768) {
+                    dropdown.classList.remove('active');
                 }
             });
         }
     });
 
-    navMenu.addEventListener('click', (e) => {
-        if (e.target.matches('.nav-link:not(.dropdown-toggle)') || e.target.matches('.dropdown-item')) {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (window.innerWidth > 768) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                body.classList.remove('menu-open');
+                
+                // Close all dropdowns
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }, 250);
     });
 
+    // Navbar scroll behavior
     let lastScrollTop = 0;
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add scrolled class
         navbar.classList.toggle('scrolled', scrollTop > 50);
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
+        
+        // Hide/show navbar on scroll (only on desktop when menu is closed)
+        if (window.innerWidth > 768 || !navMenu.classList.contains('active')) {
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
         }
+        
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }, { passive: true });
 }
@@ -79,6 +149,7 @@ function initScrollFeatures() {
 }
 
 function initInteractiveElements() {
+    // Add any additional interactive features here
 }
 
 function initContactForm() {
@@ -129,7 +200,7 @@ function initContactForm() {
     });
 }
 
-
+// Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     console.log('IEEE SB CEK Website Initializing...');
 
@@ -141,45 +212,28 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('IEEE SB CEK Website initialized successfully!');
 });
 
-
-
-
-
 /* === MODAL LOGIC FOR AITHON 3.0 === */
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Get the modal element
     const aithonModal = document.getElementById('aithonModal');
-    
-    // Get the card that opens the modal
     const aithonCard = document.getElementById('aithonEventCard');
-    
-    // Get the close button
-    const closeModalBtn = aithonModal.querySelector('.modal-close');
+    const closeModalBtn = aithonModal ? aithonModal.querySelector('.modal-close') : null;
 
-    // Function to open the modal
     function openModal() {
-        aithonModal.classList.add('active');
+       if (aithonModal) aithonModal.classList.add('active');
     }
 
-    // Function to close the modal
     function closeModal() {
-        aithonModal.classList.remove('active');
+        if (aithonModal) aithonModal.classList.remove('active');
     }
 
-    // --- Event Listeners ---
-    
-    // When the user clicks the card, open the modal
     if (aithonCard) {
         aithonCard.addEventListener('click', openModal);
     }
 
-    // When the user clicks on <span> (x), close the modal
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', closeModal);
     }
 
-    // When the user clicks anywhere outside of the modal content, close it
     window.addEventListener('click', (event) => {
         if (event.target == aithonModal) {
             closeModal();
